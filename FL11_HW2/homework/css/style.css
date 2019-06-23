@@ -71,7 +71,7 @@ section::before {
   color: #78746c;
   font-style: italic;
 }
-.box.gallery-container p::first-letter {
+.gallery-container .box p::first-letter {
   font-size: 28px;
 }
 .boxes.gallery-container li {
