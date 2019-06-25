@@ -1,28 +1,82 @@
+.lineHeightNightMod, .footer .footer-wrap .footer_text, .section .section_card_wrap .section_card .section_card_text {
+  line-height: 1.5;
+}
+
+.marginTop, .header .header_text {
+  margin-top: 180px;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 1920px;
-  border: 2px solid #000000;
+  color: #2c2f3c;
+  background-color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .header {
+  display: flex;
+  justify-content: center;
   background: url(../img/m-h-day.jpg) center/cover no-repeat;
   height: 900px;
   border-radius: 0 0 40%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .header .header-wrap {
-  border: 1px solid #1add00;
+  height: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 1535px;
 }
+.header .header-wrap::before {
+  content: "";
+  top: 320px;
+  z-index: 1;
+  position: absolute;
+  width: 380px;
+  border-bottom: 30px solid #14a0c7;
+}
+.header .header-wrap .landing-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header .header-wrap .landing-logo p {
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.header .header-wrap .landing-logo p span {
+  display: block;
+  font-size: 12px;
+}
+.header .header-wrap .landing-logo img {
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
 .header .header_heading {
-  font-size: 4em;
-  width: 600px;
-  border: 1px solid #d1ff04;
+  position: absolute;
+  top: 170px;
+  z-index: 1;
+  font-size: 90px;
+  line-height: 1;
+  width: 620px;
+  font-weight: bold;
+  margin: 0;
+}
+.header .header_text {
+  width: 820px;
+  margin-top: 208px;
+  font-size: 20px;
+  white-space: pre-line;
+  line-height: 1.5;
 }
 .header .header_button {
   width: 175px;
@@ -30,14 +84,190 @@ body {
   border-radius: 4px;
   background-color: #699900;
   border: none;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: bolder;
   color: #fff;
-  font-size: 16px;
+  font-size: 22px;
 }
 
-main {
+.section {
   width: 1535px;
-  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 990px;
+  position: relative;
+}
+.section .section_text {
+  font-size: 55px;
+  font-weight: 600;
+  margin: 40px;
+}
+.section .section_text::after {
+  content: "";
+  position: absolute;
+  width: 225px;
+  top: 82px;
+  right: 510px;
+  z-index: -1;
+  border: 8px solid #14a0c7;
+}
+.section .section_card_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  color: #fff;
+}
+.section .section_card_wrap .section_card {
+  width: 490px;
+  height: 570px;
+  background-color: #21232e;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.section .section_card_wrap .section_card .section_card_heading {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 15px solid #14a0c7;
+  display: inline-block;
+  line-height: 0.3;
+  margin: 30px 0 10px;
+}
+.section .section_card_wrap .section_card .section_card_text {
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 0;
+  color: #c0c3ce;
+}
+.section .section_card_wrap .section_card .section_card_img {
+  min-height: 296px;
+  width: auto;
+  border-radius: 8px;
+}
+.section .section_banner {
+  position: absolute;
+  z-index: 1;
+  bottom: -90px;
+  height: 180px;
+  width: 1200px;
+  background-image: linear-gradient(to right, #699900, #2d5bd9);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+.section .section_banner .section_banner_text_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.section .section_banner .section_banner_text_wrap .section_banner_heading {
+  font-size: 36px;
+  font-weight: bolder;
+  margin: 0;
+}
+.section .section_banner .section_banner_text_wrap .section_banner_heading::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 64px;
+  top: 58px;
+  left: 277px;
+  border: 8px solid #14a0c7;
+}
+.section .section_banner .section_banner_text_wrap .section_banner_text {
+  color: #c0c3ce;
+  font-size: 20px;
+  margin-top: 22px;
+}
+.section .section_banner .section_banner_button {
+  width: 175px;
+  height: 55px;
+  border-radius: 4px;
+  background-color: #699900;
+  border: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bolder;
+  color: #fff;
+  font-size: 22px;
+}
+
+.footer {
+  background-color: #21232e;
+  width: 1920px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  color: #c0c3ce;
+  font-size: 18px;
+}
+.footer .footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1535px;
+  margin-top: 90px;
+}
+.footer .footer-wrap .footer_logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 600;
+}
+.footer .footer-wrap .footer_logo p {
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.2;
+}
+.footer .footer-wrap .footer_logo p span {
+  display: block;
+  font-size: 12px;
+}
+.footer .footer-wrap .footer_logo img {
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.footer .footer-wrap .footer_text {
+  width: 380px;
+}
+.footer .footer-wrap .footer-cr {
+  text-align: center;
+  font-size: 20px;
+}
+
+.header .header-wrap .landing-logo p {
+  font-family: "Hind", sans-serif;
+}
+
+.header .header_text {
+  font-family: "Hind", sans-serif;
+}
+
+.section .section_card_wrap .section_card .section_card_text {
+  font-family: "Hind", sans-serif;
+}
+
+.section .section_banner .section_banner_text_wrap .section_banner_text {
+  font-family: "Hind", sans-serif;
+}
+
+.footer {
+  font-family: "Hind", sans-serif;
+}
+
+.footer .footer-wrap .footer_logo p {
+  font-family: "Hind", sans-serif;
 }
 
 /*# sourceMappingURL=style1.css.map */
