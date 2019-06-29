@@ -1,30 +1,39 @@
 body {
   display: flex;
   justify-content: center;
-  max-width: 2400px;
+  width: 100%;
   font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+   min-width: 900px;
 }
 .container {
-  width: 90%;
+  /* width: 90%; */
   border: 1px solid #000;
 }
 header {
   background: url(../img/sample2.jpg) center center/cover no-repeat;
   max-height: 1467px;
-  height: calc((100vw - 900px) / (2400 - 900) * (1465 - 550) + 550px);
-  display: flex;
-  flex-direction: column;
+  height: 550px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
   justify-content: space-around;
 }
 header .navBar {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  /* justify-content: space-between; */
+  /* margin: 0; */
+  padding: 30px 30px 0;
+  border: 1px solid rgb(255, 0, 0);
 }
 header .navBar .logo {
   letter-spacing: 3px;
-  /* font-stretch: condensed; */
-  font-size: calc((100vw - 900px) / (2400 - 900) * (28 - 16) + 16px);
+}
+header .navBar .login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center
 }
 header .navBar .login a {
   text-decoration: none;
@@ -32,22 +41,27 @@ header .navBar .login a {
 }
 
 header .promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  border: 1px solid rgb(115, 255, 0);
 }
 header .promo h1 {
-  font-size: calc((100vw - 900px) / (2400 - 900) * (85 - 32) + 32px);
-  /* font-size: 100px; */
-  letter-spacing: calc((100vw - 900px) / (2400 - 900) * (16 - 6) + 6px);
+  font-size: 32px;
+  letter-spacing: 6px;
   font-weight: 400;
   margin: 0;
 }
 header .promo h1 span {
-  font-size: calc((100vw - 900px) / (2400 - 900) * (165 - 58) + 58px);
-  /* font-size: 192px; */
+  font-size: 58px;
 }
 header .promo p {
-  font-size: 32px;
   margin: 0;
+}
+header nav {
+  border: 1px solid rgb(0, 17, 255);
 }
 header nav ul {
   list-style: none;
@@ -60,30 +74,38 @@ header nav ul li {
   border: 1px solid #fff;
   /* height: 6.5%; */
   width: 17%;
+  height: calc(100vw * 0.17 * 0.23);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc((100vw - 900px) / (2400 - 900) * (25 - 9) + 9px);
-  /* padding: calc((100vw - 900px)/(2400 - 900) * (40 - 15) + 15px) calc((100vw - 900px)/(2400 - 900) * (40 - 15) + 15px); */
 }
 header nav ul li a {
   color: #fff;
   text-decoration: none;
-  /* font-size: 36px; */
 }
 .triangle {
   display: flex;
   justify-content: flex-end;
-  height: calc((100vw - 900px) / (2400 - 900) * (430 - 160) + 160px);
+  height:  160px;
   width: 100%;
   background-color: #000000;
   clip-path: polygon(100% 100%, 0 0, 100% 0);
 }
 .triangle p {
   margin: 0;
-  width: 50%;
-  font-size: calc((100vw - 900px) / (2400 - 900) * (27 - 10) + 10px);
+  width: 45%;
 }
+main {
+  width: 90%;
+  border: 1px solid rgb(238, 255, 0);
+}
+main .slogan {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+
 
 figure {
   margin: 0;
@@ -111,7 +133,7 @@ figure button {
   /* grid-template-rows: 50px 500px 500px; */
 }
 
-.grid-item {
+.post {
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* grid-auto-flow: column; */
@@ -119,7 +141,7 @@ figure button {
   align-content: center;
   margin-bottom: 35px;
 }
-.grid-item section {
+.post section {
   align-items: center;
   text-align: center;
   background-color: rgb(96, 61, 226);
@@ -135,8 +157,17 @@ section article.grid-item:last-child section {
   padding: 0 15% 0 0;
   /* justify-content: space-between; */
 }
-/* .post {
+.post-text {
       display: grid;
       grid-template-columns: auto;
   
-  } */
+  }
+@media (min-width: 901px) {
+  header, .triangle p{
+    height: calc((100vw - 900px)/1500*(1465 - 550) + 550px);
+    font-size: calc((100vw - 900px)/1500*(32 - 14) + 14px);
+  }
+  .triangle {
+    height: calc((100vw - 900px) / 1500 * (430 - 160) + 160px);
+  }
+}
