@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
@@ -23,8 +23,7 @@ header {
 header .navBar {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  /* justify-content: space-between; */
-  /* margin: 0; */
+  justify-content: space-between;
   padding: 30px 30px 0;
 }
 header .navBar .logo {
@@ -68,7 +67,7 @@ header nav ul {
 }
 header nav ul li {
   border: 1px solid #fff;
-  /* height: 6.5%; */
+  height: 6.5%;
   width: 17%;
   height: calc(100vw * 0.17 * 0.23);
   display: flex;
@@ -76,11 +75,11 @@ header nav ul li {
   align-items: center;
 }
 header nav ul li:hover {
-  background-color: #9E9E9E;
+  background-color: #9e9e9e;
 }
 
 header nav ul li:active {
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
 }
 
 header nav ul li a {
@@ -91,10 +90,9 @@ header nav ul li a {
   justify-content: center;
   text-decoration: none;
   align-items: center;
-  
 }
 header nav ul li a:active {
-  color: #9E9E9E;
+  color: #9e9e9e;
 }
 .triangle {
   display: flex;
@@ -118,49 +116,49 @@ main .slogan {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-main section h1 {
+main section h2 {
   margin: 4%;
   text-align: center;
   font-weight: 400;
 }
 .post {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-content: center;
   margin-bottom: 35px;
 }
-.post figure {
+.post .post-item {
   margin: 0;
   position: relative;
   color: #f0f0f0;
 }
-.post figure img {
+.post .post-item img {
   width: 100%;
   height: auto;
 }
-.post figure figcaption {
+.post .post-item .signature {
   position: absolute;
   bottom: 15px;
   margin: 0 0 2% 5%;
   text-shadow: 0 0 5px #000;
 }
 
-.post figure button {
+.post .post-item button {
   position: absolute;
   top: 0;
   right: 0;
 }
-.post section {
+.post .post-text {
   align-items: center;
   text-align: center;
   padding: 0 0 0 10%;
 }
-.post:last-child section {
+.post:last-child .post-text {
   order: -1;
-  /* display: grid; */
+  display: grid;
   padding: 0 10% 0 0;
-  /* justify-content: space-between; */
 }
 .post-text {
   display: grid;
@@ -188,7 +186,7 @@ main section h1 {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   height: 225px;
-  /* box-shadow: inset 0 0 25px #000; */
+  box-shadow: inset 0 0 25px #000;
 }
 
 .card .card-item:nth-child(1) {
@@ -204,31 +202,35 @@ main section h1 {
   background-image: url(../img/news-list-4.jpg);
 }
 
-.card .card-item button:nth-child(1),
-.post figure button {
+.card .card-item button:nth-child(1) {
   border: 2px solid #fff;
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   margin: auto;
   padding: 2% 4%;
   top: 4%;
-  right: 6%;
+  right: 12%;
   align-self: flex-end;
 }
 .card .card-item button:nth-child(1):hover,
-.post figure button:hover {
- background-color: #9E9E9E;
+.post .post-item button:hover {
+  background-color: #9e9e9e;
 }
 .card .card-item button:nth-child(1):active,
-.post figure button:active {
-background-color: #F3F3F3;
-color: #9E9E9E;
+.post .post-item button:active {
+  background-color: #f3f3f3;
+  color: #9e9e9e;
 }
 
-
-
-.post figure button {
+.post .post-item button {
   padding: 1% 2%;
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  margin: auto;
+  top: 4%;
+  right: 3%;
+  align-self: flex-end;
 }
 .card .card-item button:nth-child(2) {
   grid-row: 3;
@@ -242,13 +244,15 @@ color: #9E9E9E;
   border: none;
   background-color: rgba(9, 119, 116, 0.7);
 }
-.card .card-item button:nth-child(2):hover, .card button:hover,
-footer .wrapp input[type="button"]:hover  {
+.card .card-item button:nth-child(2):hover,
+.card button:hover,
+footer .wrapp input[type="button"]:hover {
   background-color: rgba(9, 119, 116, 0.4);
   cursor: pointer;
 }
-.card .card-item button:nth-child(2):active, .card button:active,
-footer .wrapp input[type="button"]:active  {
+.card .card-item button:nth-child(2):active,
+.card button:active,
+footer .wrapp input[type="button"]:active {
   color: #097774;
   background-color: rgba(158, 158, 158, 0.7);
 }
@@ -260,7 +264,7 @@ footer .wrapp input[type="button"]:active  {
 }
 .card .card-item p,
 .card button,
-.post figure button {
+.post .post-item button {
   color: #f0f0f0;
   font-size: 14px;
 }
@@ -275,7 +279,6 @@ footer .wrapp form {
   flex-direction: row;
   justify-content: flex-end;
   margin: 2%;
-  /* align-items: center; */
 }
 footer .wrapp label {
   font-size: 21px;
@@ -304,7 +307,7 @@ footer .wrapp input[type="button"] {
 footer .copy {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  
+  justify-content: space-between;
   margin-top: 5%;
 }
 footer .copy span {
@@ -313,14 +316,12 @@ footer .copy span {
 footer .copy nav {
   display: flex;
   justify-content: space-between;
-width: 30%;
+  width: 30%;
 }
 footer .copy nav a {
   text-decoration: none;
   color: #000;
 }
-
-
 
 @media (min-width: 901px) {
   header {
@@ -331,8 +332,8 @@ footer .copy nav a {
   .card .card-item p,
   .card button,
   .post .post-text p,
-  .post figure button,
-  .post figure figcaption,
+  .post .post-item button,
+  .post .post-item .signature,
   .slogan p,
   footer p,
   footer .wrapp input[type="email"]::placeholder,
@@ -347,7 +348,7 @@ footer .copy nav a {
   header .promo h1 span {
     font-size: calc((100vw - 900px) / 1500 * (175 - 58) + 58px);
   }
-  main section h1,
+  main section h2,
   footer .wrapp label {
     font-size: calc((100vw - 900px) / 1500 * (55 - 21) + 21px);
   }
