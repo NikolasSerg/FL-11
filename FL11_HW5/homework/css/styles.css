@@ -2,22 +2,64 @@
  * Feel free to change name of colors if you need it
  * Feel free to add new colors if you need it
  */
-:root {
+/* body {
   --bg-color--dark: #0b192f;
   --bg-color--header: #162b4d;
   --link: #fff;
   --link--hover: #b8b8b8;
   --bg-footer-color: #162b4d;
+} */
+html {
+  background-color: #fff;
 }
-
 body {
+  
   width: 480px;
   border: 1px solid #000;
   font-family: roboto;
+  /* display: grid;
+  grid-template-columns: 1fr; */
+  padding: 0 1.5%;
+  /* background-color: var(--bg-color--dark); */
+  background-color: #0b192f;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #162b4d;
+  height: 200px;
+  margin-bottom: 20px;
+}
+header h1 {
+  font-weight: 200;
+  font-size: 45px;
+  color: #fff;
+  margin: 0;
+}
+header h1 span {
+  color: #b71757;
+}
+header button {
+  background-color: transparent;
+  border: none;
+ 
+}
+header button a {
+  text-decoration: none;
+  color: #fff;
+}
+header button a:hover {
+  color: #b8b8b8;
+}
+
+
+.content {
   display: grid;
   grid-template-columns: 1fr;
 }
-article {
+.content article {
   display: grid;
   /* grid-template-rows: 445px 445px; */
   grid-template-rows: 1fr 1fr;
@@ -82,7 +124,7 @@ justify-content: space-around;
 .post-4 {
   background: #d12767;
 }
-.post-5 {
+.content .post-5 {
   background: #2d95bb;
   display: grid;
   grid-template-rows: 1fr;
@@ -90,12 +132,19 @@ justify-content: space-around;
 .post-5 .post-text {
   margin: 6%;
 }
-/* aside {
+aside {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-row-gap: 20px;
+}
+aside article {
+  background-color: #fff;
+}
+/* aside .aside-1 {
+  margin-bottom: 200px;
 } */
 .aside-text {
-  margin: 0 6% 6%;
+  /* margin: 0 6% 6%; */
+  padding: 0 6% 3%;
 }
 .aside-text h2 {
 color: #000;
@@ -104,3 +153,21 @@ font-size: 28px;
 margin-top: 0;
 }
 /* Your styles go here */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #162b4d;
+  margin-top: 50px;
+  /* height: 190px; */
+  padding: 10%;
+  color: #fff;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+}
+footer p:nth-child(2){
+  width: 135px;
+}
