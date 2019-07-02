@@ -1,0 +1,106 @@
+/*
+ * Feel free to change name of colors if you need it
+ * Feel free to add new colors if you need it
+ */
+:root {
+  --bg-color--dark: #0b192f;
+  --bg-color--header: #162b4d;
+  --link: #fff;
+  --link--hover: #b8b8b8;
+  --bg-footer-color: #162b4d;
+}
+
+body {
+  width: 480px;
+  border: 1px solid #000;
+  font-family: roboto;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+article {
+  display: grid;
+  /* grid-template-rows: 445px 445px; */
+  grid-template-rows: 1fr 1fr;
+}
+article img {
+  width: 100%;
+  margin-bottom: 25px;
+}
+article .post-text h2 {
+  color: #fff;
+  font-weight: 100;
+  font-size: 50px;
+  margin: 0;
+  line-height: 1;
+}
+article p {
+  line-height: 1.7;
+  /* font-size: 14px; */
+} 
+.post-text {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+.post-text .time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+/* .post-text .post-1 .time {
+  margin-top: 0;
+}  */
+.post-text .time time {
+  display: block;
+  font-weight: 100;
+  font-size: 50px;
+}
+.post-text .time time:nth-last-child(1) {
+  font-size: 30px;
+}
+/* .post-2 .post-text {
+  margin: 0 6% 6%;
+} */
+.post-text {
+  margin: 0 6% 6%;
+}
+
+.post-1, .post-2, .post-3, .post-4, .post-5 {
+  color: #fff;
+}
+
+.post-1 {
+  background: #b71757;
+}
+.post-2 {
+  background: #0d7e71;
+}
+.post-3 {
+  background: #b1660e;
+}
+.post-4 {
+  background: #d12767;
+}
+.post-5 {
+  background: #2d95bb;
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.post-5 .post-text {
+  margin: 6%;
+}
+/* aside {
+  display: grid;
+  grid-template-rows: 1fr;
+} */
+.aside-text {
+  margin: 0 6% 6%;
+}
+.aside-text h2 {
+color: #000;
+font-weight: 300;
+font-size: 28px;
+margin-top: 0;
+}
+/* Your styles go here */
