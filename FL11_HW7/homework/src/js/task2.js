@@ -2,6 +2,7 @@ let game = confirm('Do you want to play a game?');
 game === false ? alert('You did not become a billionaire, but can.') : '';
 let random = null;
 let randomCounter = 8;
+let randomCounterSupGame = 4;
 let userAnsw = null;
 let prize = null;
 let sum = 0;
@@ -14,8 +15,10 @@ let secondPrize = 50;
 let secondPrizeCount = 2;
 let thirdPrize = 25;
 let thirdPrizeCount = 3;
+// let prizeSupGame = 1;
 let i = 1
 let counter = 3;
+let counterContinueGame = 1;
 
 while (game === true) {
   random = Math.floor(Math.random() * randomCounter);
@@ -29,16 +32,15 @@ while (game === true) {
     userAnsw === random;
     switch (true) {
       case userAnsw === random && i === firstPrizeCount:
-        prize = firstPrize;
+          prize = firstPrize * counterContinueGame;
         break;
       case userAnsw === random && i === secondPrizeCount:
-        prize = secondPrize;
+          prize = secondPrize * counterContinueGame;
         break;
       case userAnsw === random && i === thirdPrizeCount:
-        prize = thirdPrize;
+            prize = thirdPrize * counterContinueGame;
         break;
       default: '';
-      //   alert('Thank you for your participation. Your prize is: … $');
     }
     
     if (prize !== null || userAnsw === null) { 
@@ -50,13 +52,17 @@ while (game === true) {
     againGame = confirm('Want you play again?');
   } else {
     continueGame = confirm(
-      `Congratulation, you won! Your prize is: ${prize}$. Do you want to continue?`
-    );
+      `Congratulation, you won! Your prize is: ${prize}$. Do you want to continue?`);
+     
   }
   if (continueGame === false) {
     againGame = confirm('Want you play again?');
+    
   }
   if (continueGame === true || againGame === true) {
+    counterContinueGame ++;
+    console.log(counterContinueGame, ' - counterContinueGame');
+    randomCounter += randomCounterSupGame;
     game = true;
     sum += prize;
     prize = null;
