@@ -46,7 +46,6 @@ switch (true) {
       } else {
         alert('Wrong password');
       }
-      console.log(changePassUser);
     } 
     if (changePassUser === false) {
       alert('You have failed the change')

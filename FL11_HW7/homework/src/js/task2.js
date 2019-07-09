@@ -22,13 +22,11 @@ let counterContinueGame = 1;
 
 while (game === true) {
   random = Math.floor(Math.random() * randomCounter);
-  console.log(random, ' - random');
 
   for (i; i <= counter; i++) {
     userAnsw = parseInt(
       prompt('enter a number of pocket on which the ball could land ')
     );
-    console.log(userAnsw, ' - userAnsw');
     userAnsw === random;
     switch (true) {
       case userAnsw === random && i === firstPrizeCount:
@@ -61,7 +59,6 @@ while (game === true) {
   }
   if (continueGame === true || againGame === true) {
     counterContinueGame ++;
-    console.log(counterContinueGame, ' - counterContinueGame');
     randomCounter += randomCounterSupGame;
     game = true;
     sum += prize;
