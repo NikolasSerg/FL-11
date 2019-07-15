@@ -27,13 +27,17 @@ function executeforEach() {
     }
     return arr;
 }
-executeforEach([1,2,3], function(el) { console.log(el) }); 
+executeforEach([1,2,3], function(el) { 
+    console.log(el) 
+}); 
 
 // Task 3 --------------------------
 function mapArray(arr, fun) {
     return executeforEach(arr, fun);
 }
-console.log(mapArray([2, 5, 8], function(el) { return el + 3 })); 
+console.log(mapArray([2, 5, 8], function(el) { 
+    return el + 3; 
+})); 
 
 // Task 4 --------------------------
 function filterArray(arr, fun) {
@@ -44,7 +48,9 @@ function filterArray(arr, fun) {
     }
     return newArr;
 }
-console.log(filterArray([2, 5, 8], function(el) { return el > 3 }));
+console.log(filterArray([2, 5, 8], function(el) { 
+    return el > 3 
+}));
 
 // Task 5 --------------------------
 function showFormattedDate(dates) {
@@ -105,45 +111,68 @@ return `Date: ${arrMonth[mounth]} ${date} ${year}`
  // Task 8 --------------------------
  let data = [
     {
-    "_id": "5b5e3168c6bf40f2c1235cd6",
-    "index": 0,
-    " birthday ": '2016-03-18T00:00:00',
-    "eyeColor": "green",
-    "name": "Stein",
-    "favoriteFruit": "apple"
+    '_id': '5b5e3168c6bf40f2c1235cd6',
+    'index': 0,
+    ' birthday ': '2016-03-18T00:00:00',
+    'eyeColor': 'green',
+    'name': 'Stein',
+    'favoriteFruit': 'apple'
     },
     {
-    "_id": "5b5e3168e328c0d72e4f27d8",
-    "index": 1,
-    " birthday ": '1991-02-11T00:00:00',
-    "eyeColor": "blue",
-    "name": "Cortez",
-    "favoriteFruit": "strawberry"
+    '_id': '5b5e3168e328c0d72e4f27d8',
+    'index': 1,
+    ' birthday ': '1991-02-11T00:00:00',
+    'eyeColor': 'blue',
+    'name': 'Cortez',
+    'favoriteFruit': 'strawberry'
     },
     {
-    "_id": "5b5e3168cc79132b631c666a",
-    "index": 2,
-    " birthday ": '1984-04-17T00:00:00',
-    "eyeColor": "blue",
-    "name": "Suzette",
-    "favoriteFruit": "apple"
+    '_id': '5b5e3168cc79132b631c666a',
+    'index': 2,
+    ' birthday ': '1984-04-17T00:00:00',
+    'eyeColor': 'blue',
+    'name': 'Suzette',
+    'favoriteFruit': 'apple'
     },
     {
-    "_id": "5b5e31682093adcc6cd0dde5",
-    "index": 3,
-    " birthday ": '1994-04-17T00:00:00',
-    "eyeColor": "green",
-    "name": "George",
-    "favoriteFruit": "banana"
+    '_id': '5b5e31682093adcc6cd0dde5',
+    'index': 3,
+    ' birthday ': '1994-04-17T00:00:00',
+    'eyeColor': 'green',
+    'name': 'George',
+    'favoriteFruit': 'banana'
     }
  ];
 function getAmountOfAdultPeople(arg) {
+    let rezult = null;
+    let rezDate = [];
      for(let i = 0; i < arg.length; i++) {
-         console.log(arg[i][' birthday ']);
-         
-     }
-    // filterArray([2, 5, 8], function(el) { return el > 18 }) 
-    // daysBetween('1994-04-17T00:00:00') {}
- };
+        rezDate.push( Math.floor(daysBetween(new Date(arg[i][' birthday ']))/365) );
+    }
+    rezult = filterArray(rezDate, function(el) {
+         return el > 18 
+        })
+    return rezult.length;
+ }
+console.log( getAmountOfAdultPeople(data) );
 
-getAmountOfAdultPeople(data)
+ // Task 9 --------------------------
+function keys (object) {
+    let keylist = Object.keys(object);
+    console.log( keylist );
+    return keylist;
+}
+keys({keyOne: 1, keyTwo: 2, keyThree: 3});
+
+// Task 10 --------------------------
+function values(object) {
+    let keylist = [];
+    for (const key in object) {
+        if (object.hasOwnProperty(key)) {
+            keylist.push( object[key] );
+        }
+    }
+    console.log(keylist);
+    return keylist;
+}
+values({keyOne: 1, keyTwo: 2, keyThree: 3});
