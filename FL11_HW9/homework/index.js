@@ -9,6 +9,7 @@ function getNumbers(arg) {
 }
 console.log(getNumbers('df1df5dfsdf8sdfsfd4sdf8'));
 
+
 // Task 1 --------------------------
 function findTypes(...arg) {
     let types = {};
@@ -19,6 +20,7 @@ function findTypes(...arg) {
 }
 console.log(findTypes(1, 'dfdf', false));
 
+
 // Task 2 --------------------------
 function executeforEach() {
     let arr = [];
@@ -27,17 +29,21 @@ function executeforEach() {
     }
     return arr;
 }
-executeforEach([1,2,3], function(el) { 
-    console.log(el) 
-}); 
+console.log(
+    executeforEach([1,2,3], function(el) { 
+        console.log(el) 
+    }) 
+);
 
 // Task 3 --------------------------
 function mapArray(arr, fun) {
     return executeforEach(arr, fun);
 }
-console.log(mapArray([2, 5, 8], function(el) { 
-    return el + 3; 
-})); 
+console.log(
+    mapArray([2, 5, 8], function(el) { 
+        return el + 3; 
+    }) 
+);
 
 // Task 4 --------------------------
 function filterArray(arr, fun) {
@@ -58,55 +64,63 @@ function showFormattedDate(dates) {
 let date = dates.getDate();
 let mounth = dates.getMonth();
 let year = dates.getFullYear();
-return `Date: ${arrMonth[mounth]} ${date} ${year}`
-} 
- console.log(showFormattedDate(new Date('2019-01-27T01:10:00'))); 
+let rezult = `Date: ${arrMonth[mounth]} ${date} ${year}`;
+return rezult;
+}
+console.log(
+    showFormattedDate(new Date('2019-01-27T01:10:00'))
+); 
 
  // Task 6 --------------------------
  function canConvertToDate(dates) {
-    let arrMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let arrMonth = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
     let dateMatch = dates.match(/\d+-\d+-\d+/);
     let timeMatch = dates.match(/\d+:\d+:\d+/);
+    let amountMonth = 12;
+    let amountHour = 23;
+    let amountMinAndSec = 59;
     let dateArr = dateMatch[0].split(/-/);
     let timeArr = timeMatch[0].split(/:/);
-    let date = parseInt(dateArr[2]);
+
+    
+    let date = parseInt(dateArr['2']);
     let mounth = parseInt(dateArr[1]);
-    let yaer = parseInt(dateArr[0]);
+    let year = parseInt(dateArr[0]);
     let hour = parseInt(timeArr[0]);
     let minutes = parseInt(timeArr[1]);
-    let seconds = parseInt(timeArr[2]);
+    let seconds = parseInt(timeArr['2']);
+
     if( date > arrMonth[mounth - 1] || date <= 0 || 
-        mounth > 12 || mounth <= 0 || 
-        yaer <= 0 ||
-        hour < 0 || hour > 23 ||
-        minutes < 0 || minutes > 59 ||
-        seconds < 0 || seconds > 59) {
+        mounth > amountMonth || mounth <= 0 || 
+        year <= 0 ||
+        hour < 0 || hour > amountHour ||
+        minutes < 0 || minutes > amountMinAndSec ||
+        seconds < 0 || seconds > amountMinAndSec) {
             console.log(false);
         } else {
             console.log(true);
         }
-} 
- canConvertToDate('2016-13-18T00:00:00'); 
- canConvertToDate('2016-03-18T00:00:00'); 
+}
+canConvertToDate('2016-13-18T00:00:00');
+canConvertToDate('2016-03-18T00:00:00')
 
 // Task 7 --------------------------
  function daysBetween(a, b) {
     let dateA = a;
     let dateB = b;
+    let accountDay = 86400000;
     let dateNow = Date.now();
     let dateDiffA = dateNow - dateA;
     let dateDiffB = dateNow - dateB;
     let rezult;
-    if(arguments.length === 2) {
-       rezult = (dateDiffA - dateDiffB)/(1000*3600*24);
+    if(arguments.length > 1) {
+       rezult = (dateDiffA - dateDiffB)/accountDay;
     } else {
-        rezult = dateDiffA/(1000*3600*24);
+        rezult = dateDiffA/accountDay;
     }
-     
     return rezult < 0 ? -rezult : rezult;
  }
  console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
-// console.log(daysBetween(new Date('2019-07-07T00:00:00')));
 
  // Task 8 --------------------------
  let data = [
@@ -146,11 +160,14 @@ return `Date: ${arrMonth[mounth]} ${date} ${year}`
 function getAmountOfAdultPeople(arg) {
     let rezult = null;
     let rezDate = [];
+    const dayOfYear = 365;
+    let limitYearsOld = 18;
+
      for(let i = 0; i < arg.length; i++) {
-        rezDate.push( Math.floor(daysBetween(new Date(arg[i][' birthday ']))/365) );
+        rezDate.push( Math.floor(daysBetween(new Date(arg[i][' birthday ']))/dayOfYear) );
     }
     rezult = filterArray(rezDate, function(el) {
-         return el > 18 
+         return el > limitYearsOld; 
         })
     return rezult.length;
  }
@@ -159,10 +176,10 @@ console.log( getAmountOfAdultPeople(data) );
  // Task 9 --------------------------
 function keys (object) {
     let keylist = Object.keys(object);
-    console.log( keylist );
     return keylist;
 }
-keys({keyOne: 1, keyTwo: 2, keyThree: 3});
+console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
+
 
 // Task 10 --------------------------
 function values(object) {
@@ -172,7 +189,6 @@ function values(object) {
             keylist.push( object[key] );
         }
     }
-    console.log(keylist);
     return keylist;
 }
-values({keyOne: 1, keyTwo: 2, keyThree: 3});
+console.log(values({keyOne: 1, keyTwo: 2, keyThree: 3}));
