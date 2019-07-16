@@ -1,4 +1,3 @@
-// Task 0 --------------------------
 function getNumbers(arg) {
     let arr = [...arg];
     let filteredArr = [];
@@ -7,21 +6,21 @@ function getNumbers(arg) {
     }
     return filteredArr;
 }
-console.log(getNumbers('df1df5dfsdf8sdfsfd4sdf8'));
 
-
-// Task 1 --------------------------
 function findTypes(...arg) {
-    let types = {};
+    let typesObject = {};
+    let type;
     for(let i = 0; i < arg.length; i++) {
-        types[typeof arg[i]] = arg[i];
+        type = typeof arg[i]; 
+        if(typesObject[type]){
+            typesObject[type] ++
+        } else {
+            typesObject[type] = 1
+        }
     }
-    return types;
+    return typesObject;
 }
-console.log(findTypes(1, 'dfdf', false));
 
-
-// Task 2 --------------------------
 function executeforEach() {
     let arr = [];
     for(let i = 0; i < arguments[0].length; i++) {
@@ -29,23 +28,11 @@ function executeforEach() {
     }
     return arr;
 }
-console.log(
-    executeforEach([1,2,3], function(el) { 
-        console.log(el) 
-    }) 
-);
 
-// Task 3 --------------------------
 function mapArray(arr, fun) {
     return executeforEach(arr, fun);
 }
-console.log(
-    mapArray([2, 5, 8], function(el) { 
-        return el + 3; 
-    }) 
-);
 
-// Task 4 --------------------------
 function filterArray(arr, fun) {
     let arrBool = executeforEach(arr, fun);
     let newArr = [];
@@ -54,11 +41,7 @@ function filterArray(arr, fun) {
     }
     return newArr;
 }
-console.log(filterArray([2, 5, 8], function(el) { 
-    return el > 3 
-}));
 
-// Task 5 --------------------------
 function showFormattedDate(dates) {
     let arrMonth = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Des'];
 let date = dates.getDate();
@@ -67,12 +50,8 @@ let year = dates.getFullYear();
 let rezult = `Date: ${arrMonth[mounth]} ${date} ${year}`;
 return rezult;
 }
-console.log(
-    showFormattedDate(new Date('2019-01-27T01:10:00'))
-); 
 
- // Task 6 --------------------------
- function canConvertToDate(dates) {
+function canConvertToDate(dates) {
     let arrMonth = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
     let dateMatch = dates.match(/\d+-\d+-\d+/);
     let timeMatch = dates.match(/\d+:\d+:\d+/);
@@ -101,11 +80,8 @@ console.log(
             console.log(true);
         }
 }
-canConvertToDate('2016-13-18T00:00:00');
-canConvertToDate('2016-03-18T00:00:00')
 
-// Task 7 --------------------------
- function daysBetween(a, b) {
+function daysBetween(a, b) {
     let dateA = a;
     let dateB = b;
     let accountDay = 86400000;
@@ -114,16 +90,14 @@ canConvertToDate('2016-03-18T00:00:00')
     let dateDiffB = dateNow - dateB;
     let rezult;
     if(arguments.length > 1) {
-       rezult = (dateDiffA - dateDiffB)/accountDay;
+        rezult = (dateDiffA - dateDiffB)/accountDay;
     } else {
         rezult = dateDiffA/accountDay;
     }
     return rezult < 0 ? -rezult : rezult;
- }
- console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
+}
 
- // Task 8 --------------------------
- let data = [
+let data = [
     {
     '_id': '5b5e3168c6bf40f2c1235cd6',
     'index': 0,
@@ -156,32 +130,27 @@ canConvertToDate('2016-03-18T00:00:00')
     'name': 'George',
     'favoriteFruit': 'banana'
     }
- ];
+];
 function getAmountOfAdultPeople(arg) {
     let rezult = null;
     let rezDate = [];
     const dayOfYear = 365;
     let limitYearsOld = 18;
 
-     for(let i = 0; i < arg.length; i++) {
+    for(let i = 0; i < arg.length; i++) {
         rezDate.push( Math.floor(daysBetween(new Date(arg[i][' birthday ']))/dayOfYear) );
     }
     rezult = filterArray(rezDate, function(el) {
-         return el > limitYearsOld; 
-        })
+        return el > limitYearsOld; 
+    })
     return rezult.length;
- }
-console.log( getAmountOfAdultPeople(data) );
+}
 
- // Task 9 --------------------------
 function keys (object) {
     let keylist = Object.keys(object);
     return keylist;
 }
-console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
 
-
-// Task 10 --------------------------
 function values(object) {
     let keylist = [];
     for (const key in object) {
@@ -191,4 +160,3 @@ function values(object) {
     }
     return keylist;
 }
-console.log(values({keyOne: 1, keyTwo: 2, keyThree: 3}));
