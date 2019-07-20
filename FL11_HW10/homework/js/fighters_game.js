@@ -17,17 +17,18 @@ function Fighter(name, damage, hp, agility) {
   //   return hp - hpArg > 0 ? (hp = hp - hpArg) : (hp = 0);
   // };
   this.attack = function(arg) {
-    if (typeof arg === "object") {
-      let randomAttack = Math.floor(Math.random() * 100);
-      // console.log(randomAttack, " - ramdom");
-      if (randomAttack < 100 - arg.getAgility()) {
+    let randomAmount = 100;
+    if (typeof arg === 'object') {
+      let randomAttack = Math.floor(Math.random() * randomAmount);
+      // console.log(randomAttack, ' - ramdom');
+      if (randomAttack < randomAmount - arg.getAgility()) {
         // console.log(`Attack success`);
         console.log(
           `${this.getName()} make ${this.getDamage()} damage to ${arg.getName()}`
         );
         // arg.setDamageofHealth(this.getDamage());
         arg.dealDamage(this.getDamage());
-        console.log(`${arg.getName()} health ${arg.getHealth()}`);
+        // console.log(`${arg.getName()} health ${arg.getHealth()}`);
         this.addWin();
         // win++;
       } else {
@@ -44,11 +45,12 @@ function Fighter(name, damage, hp, agility) {
   };
   this.heal = function(arg) {
     hp += arg;
-    console.log(hp, " - hp");
+    console.log(hp, ' - hp');
   };
   this.dealDamage = function(arg) {
-    // console.log(hp, " - hp");
-    return hp - arg < 0 ? (hp = 0) : (hp -= arg);
+    // console.log(hp, ' - hp');
+    let rez = hp - arg < 0 ? hp = 0 : hp -= arg;
+    return rez;
 
   };
   this.addWin = function() {
@@ -94,5 +96,5 @@ function battle(fighter, damager) {
   }
 }
 
-let myFighter = new Fighter("Jhon", 20, 100, 25);
-let damager = new Fighter("Andru", 30, 70, 40);
+// let myFighter = new Fighter('Jhon', 20, 100, 25);
+// let damager = new Fighter('Andru', 30, 70, 40);
