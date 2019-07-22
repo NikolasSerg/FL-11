@@ -1,0 +1,59 @@
+#root {
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  text-align: center;
+}
+.addActions {
+    display: flex;
+    flex-direction: row;
+}
+.addActions input {
+    flex-grow: 1;
+}
+.addActions i {
+    flex-grow: auto;
+    font-size: 50px;
+    padding: 0 15px;
+}
+hr {
+    border: 3px solid rgba(64, 76, 243, 0.192);
+    width: 100%;
+    margin: 20px 0;
+}
+#newAction {
+  line-height: 3;
+  text-indent: 1.5rem;
+}
+#list {
+    margin: 0;
+    list-style-type: none;
+}
+#list .disappear {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#list div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+#list div span {
+  margin: 0 15px;
+}
+#list i {
+  cursor: pointer;
+}
+#list li .done {
+  position: absolute;
+  font-size: 30px;
+  top: -7px;
+  left: -2px;
+  z-index: 2;
+  visibility: visible;
+  /* display: inline-block */
+}
+/* .inputBlock {} */
