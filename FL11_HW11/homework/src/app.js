@@ -1,54 +1,122 @@
-// let rootNode = document.getElementById("root");
+let li = document.getElementsByTagName('li');
+let list = document.getElementById('list');
+let newAction = document.getElementById('newAction');
+let addNewAction = document.getElementById('addNewAction');
+let lenli = 10;
 
-let li = document.getElementsByTagName("li");
-let done = document.getElementsByClassName("done");
-let edit = document.getElementsByClassName("edit");
+window.onload = function() {
+  let done = document.getElementsByClassName('done');
+  let deleteItem = document.getElementsByClassName('delete');
+  let edit = document.getElementsByClassName('edit');
+  doneFun(done);
+  editFun(edit);
+  deleteFun(deleteItem);
+};
 
-for (let i = 0; i < done.length; i++) {
-  done[i].addEventListener("click", function(e) {
-    let targetStyle = e.target.style.opacity;
-    console.log(targetStyle, " - targetStyle");
-    targetStyle === "0"
-      ? (e.target.style.opacity = "1")
-      : (e.target.style.opacity = "0");
-  });
-}
-for (let i = 0; i < edit.length; i++) {
-  edit[i].addEventListener("click", function(e) {
-    let parentDiv = e.target.parentElement.parentElement;
-    let span = e.target.previousElementSibling;
-    console.log(e.target, " - e");
-    console.log(span, " - span");
-    let parentLi = e.target.parentElement.parentElement.parentElement;
+function editFun(arg) {
+  if (arg.length === undefined) {
+    arg.addEventListener('click', event => addEvent(event));
+  } else {
+    for (let i = 0; i < arg.length; i++) {
+      arg[i].addEventListener('click', event => addEvent(event));
+    }
+  }
 
-    console.log(parentDiv, " - parentDiv");
-    console.log(parentLi, " - parentLi");
-    parentDiv.style.display = "none";
-
-    let input = document.createElement("input");
-    let button = document.createElement("i");
-    let inputBlock = document.createElement("div");
-
-    inputBlock.classList.add("inputBlock");
-
+  function addEvent(event) {
+    let parentDiv = event.target.parentElement.parentElement;
+    parentDiv.style.display = 'none';
+    let span = event.target.previousElementSibling;
+    let li = event.target.parentElement.parentElement.parentElement;
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    let button = document.createElement('i');
+    button.classList.add('material-icons');
+    button.innerHTML = 'save';
+    let inputBlock = document.createElement('div');
+    inputBlock.classList.add('inputBlock');
     let valueInput;
-
-    input.setAttribute("type", "text");
-    button.classList.add("material-icons");
-    button.innerHTML = "save";
-    console.log(input);
-    console.log(button);
-    parentLi.append(inputBlock);
+    li.append(inputBlock);
     inputBlock.append(input);
     inputBlock.append(button);
 
-    button.addEventListener("click", function() {
+    button.addEventListener('click', function() {
       valueInput = input.value;
-      console.log(valueInput, " - valueInput");
-      inputBlock.style.display = "none";
-      parentDiv.style.display = "flex";
-
+      inputBlock.style.display = 'none';
+      parentDiv.style.display = 'flex';
       span.innerHTML = valueInput;
     });
-  });
+  }
+}
+
+function deleteFun(arg) {
+  if (arg.length === undefined) {
+    arg.addEventListener('click', event => addEvent(event));
+  }
+  for (let i = 0; i < arg.length; i++) {
+    arg[i].addEventListener('click', event => addEvent(event));
+  }
+  function addEvent(event) {
+    let liDelete = event.target.parentElement.parentElement;
+    list.removeChild(liDelete);
+  }
+}
+
+addNewAction.addEventListener('click', function() {
+  if (newAction.value !== '' && li.length < lenli) {
+    let newActionValue = newAction.value;
+    let li = document.createElement('li');
+    li.setAttribute('draggable', 'true');
+    let divParent = document.createElement('div');
+    divParent.classList.add('disappear');
+    let divChild = document.createElement('div');
+    let iDone = document.createElement('i');
+    iDone.classList.add('material-icons');
+    iDone.classList.add('done');
+    iDone.style.opacity = '0';
+    iDone.innerHTML = 'done';
+    let iSquare = document.createElement('i');
+    iSquare.classList.add('material-icons');
+    iSquare.innerHTML = 'crop_square';
+    let span = document.createElement('span');
+    span.innerHTML = newActionValue;
+    let iEdit = document.createElement('i');
+    iEdit.classList.add('material-icons');
+    iEdit.classList.add('edit');
+    iEdit.innerHTML = 'edit';
+    let iDelete = document.createElement('i');
+    iDelete.classList.add('material-icons');
+    iDelete.classList.add('delete');
+    iDelete.innerHTML = 'delete';
+
+    divChild.appendChild(iDone);
+    divChild.appendChild(iSquare);
+    divChild.appendChild(span);
+    divChild.appendChild(iEdit);
+
+    divParent.appendChild(divChild);
+    divParent.appendChild(iDelete);
+    li.appendChild(divParent);
+    list.appendChild(li);
+
+    doneFun(iDone);
+    editFun(iEdit);
+    deleteFun(iDelete);
+
+    newAction.value = '';
+  }
+});
+
+function doneFun(arg) {
+  if (arg.length === undefined) {
+    arg.addEventListener('click', event => addEvent(event));
+  }
+  for (let i = 0; i < arg.length; i++) {
+    arg[i].addEventListener('click', event => addEvent(event));
+  }
+  function addEvent(event) {
+    let targetStyle = event.target.style.opacity;
+    targetStyle === '0'
+      ? event.target.style.opacity = '1'
+      : event.target.style.opacity = '0';
+  }
 }
